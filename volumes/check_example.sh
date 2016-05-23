@@ -1,0 +1,14 @@
+#!/bin/sh
+STATE_OK=0
+STATE_WARNING=1
+STATE_CRITICAL=2
+STATE_UNKNOWN=3
+STATE_DEPENDENT=4
+if pidof exampledaemon > /dev/null
+then
+	echo "EXAMPLEDAEMON OK"
+	exit $STATE_OK
+else
+	echo "EXAMPLEDAEMON DOWN"
+	exit $STATE_WARNING
+fi
